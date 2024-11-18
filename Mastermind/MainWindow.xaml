@@ -48,6 +48,7 @@
                 <ComboBoxItem Content="Geel"/>
                 <ComboBoxItem Content="Oranje"/>
             </ComboBox>
+            <TextBox x:Name="TextBox1" HorizontalAlignment="Left" Margin="35,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Height="75" IsEnabled="False"/>
         </Grid>
         <Label x:Name="Label3" HorizontalAlignment="Left" Margin="385,86,0,0"  VerticalAlignment="Top" Height="94" Width="150" IsEnabled="False"/>
         <Label x:Name="Label1" Grid.Column="2" HorizontalAlignment="Left" Margin="35,86,0,0"  VerticalAlignment="Top" Height="94" Width="150" IsEnabled="False"/>

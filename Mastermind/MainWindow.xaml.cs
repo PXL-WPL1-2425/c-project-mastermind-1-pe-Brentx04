@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -21,7 +22,13 @@ namespace Mastermind
             InitializeComponent();
         }
 
-
+        public void debug(ToggleButton toggledebug) 
+        {
+            if (debug)
+            {
+                toggledebug = Key.LeftCtrl Key.F12;
+            }
+        }
         private void checkCode_Click(object sender, RoutedEventArgs e)
         {
             string[] colors = { "rood", "geel", "oranje", "wit", "groen", "blauw" };
@@ -31,6 +38,7 @@ namespace Mastermind
                                $"{colors[random.Next(colors.Length)]}, " +
                                $"{colors[random.Next(colors.Length)]}";
 
+            TextBox1.Text = $"{colorCode}";
             int attempts = 1;
 
             do
