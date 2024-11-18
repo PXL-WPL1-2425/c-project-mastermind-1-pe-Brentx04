@@ -49,6 +49,7 @@ namespace Mastermind
             {
                 StartCountDown.Stop();
             }
+            //push 5
 
             string[] colors = { "rood", "geel", "oranje", "wit", "groen", "blauw" };
             Random random = new Random();
