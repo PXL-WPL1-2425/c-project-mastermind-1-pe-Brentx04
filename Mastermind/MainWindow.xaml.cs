@@ -22,7 +22,9 @@ namespace Mastermind
         public MainWindow()
         {
             InitializeComponent();
-
+            StartCountDown.Tick += Timer_Tick;
+            StartCountDown.Interval = new TimeSpan(0, 0, 1);
+            StartCountDown.Start();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -43,9 +45,10 @@ namespace Mastermind
 
         private void checkCode_Click(object sender, RoutedEventArgs e)
         {
-            StartCountDown.Tick += Timer_Tick;
-            StartCountDown.Interval = new TimeSpan(0, 0, 1);
-            StartCountDown.Start();
+            if (StartCountDown = TimeSpan (0, 0, 10))
+            {
+                StartCountDown.Stop();
+            }
 
             string[] colors = { "rood", "geel", "oranje", "wit", "groen", "blauw" };
             Random random = new Random();
