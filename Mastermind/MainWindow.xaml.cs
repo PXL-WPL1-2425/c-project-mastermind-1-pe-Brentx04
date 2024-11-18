@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Mastermind
 {
@@ -17,10 +18,20 @@ namespace Mastermind
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DispatcherTimer StartCountDown = new DispatcherTimer();
         public MainWindow()
         {
             InitializeComponent();
+
         }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        
+        {
+             textBoxTime.Text = $"{DateTime.Now.ToLongTimeString()}";
+        }
+        
+    
 
         public void debug(ToggleButton toggledebug) 
         {
@@ -29,8 +40,13 @@ namespace Mastermind
                 toggledebug = Key.LeftCtrl Key.F12;
             }
         }
+
         private void checkCode_Click(object sender, RoutedEventArgs e)
         {
+            StartCountDown.Tick += Timer_Tick;
+            StartCountDown.Interval = new TimeSpan(0, 0, 1);
+            StartCountDown.Start();
+
             string[] colors = { "rood", "geel", "oranje", "wit", "groen", "blauw" };
             Random random = new Random();
             string colorCode = $"{colors[random.Next(colors.Length)]}, " +
